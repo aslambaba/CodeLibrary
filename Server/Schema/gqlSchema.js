@@ -79,7 +79,7 @@ const mutation = new GraphQLObjectType({
                     name: args.name,
                     author: args.author
                 });
-                return args.id
+                return NN = {id: args.id,name:args.name,author: args.author}
             },
         }
     }
