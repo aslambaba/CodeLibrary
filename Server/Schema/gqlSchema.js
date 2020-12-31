@@ -14,11 +14,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-function writeUserData() {
 
-
-}
-writeUserData();
 
 const BookType = new GraphQLObjectType({
     name: 'BookType',
@@ -44,20 +40,9 @@ const RootQuery = new GraphQLObjectType({
     name: 'RootQuery',
     fields: {
         books: {
-            type: new GraphQLList(BookType),
+            type: BookType,
             resolve(parent, args) {
-
-
-                var record;
-                function Another(a) {
-                    record = a;
-                }
-                firebase.database().ref().on('value', (snapshot) => {
-                    let data = snapshot.val().Books;
-                    Another(data);
-                });
-                return record;
-
+                
             }
         }
     }
