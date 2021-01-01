@@ -25,7 +25,6 @@ const BookType = new GraphQLObjectType({
     })
 });
 
-
 const AuthorType = new GraphQLObjectType({
     name: 'AuthorType',
     fields: () => ({
@@ -35,13 +34,14 @@ const AuthorType = new GraphQLObjectType({
     })
 })
 
-
+var b;
 const RootQuery = new GraphQLObjectType({
     name: 'RootQuery',
     fields: {
         books: {
-            type: BookType,
+            type: new GraphQLList(BookType),
             resolve(parent, args) {
+                
                 
             }
         }
